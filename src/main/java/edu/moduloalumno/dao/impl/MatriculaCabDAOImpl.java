@@ -21,49 +21,38 @@ public class MatriculaCabDAOImpl implements IMatriculaCabDAO {
 
     @Override
     public MatriculaCab getMatriculaCabBycodAlumno(String cod_alumno) {
-        String sql = "SELECT cod_alumno, id_prograna, semestre, ciclo FROM matricula_cab WHERE cod_alumno = ?";
+        String sql = "SELECT cod_alumno, id_programa, semestre, ciclo FROM matricula_cab WHERE cod_alumno = ?";
         RowMapper<MatriculaCab> rowMapper = new MatriculaCabRowMapper();
         MatriculaCab matriculaCab = jdbcTemplate.queryForObject(sql, rowMapper, cod_alumno);
         return matriculaCab;
     }
 
-    public MatriculaCab getMatriculaCabByIdPrograma(Integer id_programa){
+    @Override
+    public List<MatriculaCab> getAllMatriculaCab() {
+        String sql = "SELECT cod_alumno, id_programa, semestre, ciclo FROM matricula_cab";
+
+        RowMapper<MatriculaCab> rowMapper = new MatriculaCabRowMapper();
+        return this.jdbcTemplate.query(sql, rowMapper);
+    }
+
+    /*@Override
+    public MatriculaCab getMatriculaCabByIdPrograma(int id_programa){
         String sql = "SELECT cod_alumno, id_prograna, semestre, ciclo FROM matricula_cab WHERE id_programa = ?";
         RowMapper<MatriculaCab> rowMapper = new MatriculaCabRowMapper();
         MatriculaCab matriculaCab = jdbcTemplate.queryForObject(sql, rowMapper, id_programa);
         return matriculaCab;
     }
-
+    @Override
     public MatriculaCab getMatriculaCabBySemestre(String semestre){
         String sql = "SELECT cod_alumno, id_prograna, semestre, ciclo FROM matricula_cab WHERE semestre = ?";
         RowMapper<MatriculaCab> rowMapper = new MatriculaCabRowMapper();
         MatriculaCab matriculaCab = jdbcTemplate.queryForObject(sql, rowMapper, semestre);
         return matriculaCab;
     }
-
     public MatriculaCab getMatriculaCabByCiclo(Integer ciclo){
         String sql = "SELECT cod_alumno, id_prograna, semestre, ciclo FROM matricula_cab WHERE ciclo = ?";
         RowMapper<MatriculaCab> rowMapper = new MatriculaCabRowMapper();
         MatriculaCab matriculaCab = jdbcTemplate.queryForObject(sql, rowMapper, ciclo);
         return matriculaCab;
-    }
-
-
-    @Override
-    public List<MatriculaCab> getAllMatriculaCab() {
-        String sql = "SELECT cod_alumno, id_prograna, semestre, ciclo FROM matricula_cab";
-
-        RowMapper<MatriculaCab> rowMapper = new MatriculaCabRowMapper();
-        return this.jdbcTemplate.query(sql, rowMapper);
-    }
-
-    @Override
-    public MatriculaCab getMatriculaCabByIdPrograma(int id_programa) {
-        return null;
-    }
-
-    @Override
-    public MatriculaCab getMatriculaCabByCiclo(int ciclo) {
-        return null;
-    }
+    }*/
 }

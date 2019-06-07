@@ -26,9 +26,9 @@ public class AlumnoMatriculaAutorizacionController {
     @Autowired
     private IAlumnoMatriculaAutorizacionDAO dao;
 
-    @RequestMapping(value = "/estado/listar", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<AlumnoMatriculaAutorizacion>> getAllAutorizacionEstado() {
-        logger.info("> getAllAutorizacionEstado [AutorizacionEstadoJSON]");
+    @RequestMapping(value = "/todos", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<AlumnoMatriculaAutorizacion>> getAllAlumnoMatriculaAutorizacion() {
+        logger.info("> getAllAlumnoMatriculaAutorizacion [AlumnoMatriculaAutorizacionJSON]");
 
         List<AlumnoMatriculaAutorizacion> list = null;
         try {
@@ -37,7 +37,7 @@ public class AlumnoMatriculaAutorizacionController {
             if (list == null) {
                 list = new ArrayList<AlumnoMatriculaAutorizacion>();
             }
-
+            logger.info("list "+list);
         } catch (Exception e) {
             logger.error("Unexpected Exception caught.", e);
             return new ResponseEntity<List<AlumnoMatriculaAutorizacion>>(list, HttpStatus.INTERNAL_SERVER_ERROR);

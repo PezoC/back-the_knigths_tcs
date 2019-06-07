@@ -17,7 +17,7 @@ import edu.moduloalumno.dao.IAutorizacionEstadoDAO;
 import edu.moduloalumno.entity.AutorizacionEstado;
 
 @RestController
-@RequestMapping("/autorizacionestado")
+    @RequestMapping("/autorizacionestado")
 public class AutorizacionEstadoController {
 
 
@@ -28,7 +28,7 @@ public class AutorizacionEstadoController {
 
     @RequestMapping(value = "/estado/listar", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<AutorizacionEstado>> getAllAutorizacionEstado() {
-        logger.info("> getAllAutorizacionEstado [AutorizacionEstadoJSON]");
+        logger.info("> getAllAutorizacionEstado");
 
         List<AutorizacionEstado> list = null;
         try {
@@ -37,7 +37,7 @@ public class AutorizacionEstadoController {
             if (list == null) {
                 list = new ArrayList<AutorizacionEstado>();
             }
-
+            logger.info("list "+list);
         } catch (Exception e) {
             logger.error("Unexpected Exception caught.", e);
             return new ResponseEntity<List<AutorizacionEstado>>(list, HttpStatus.INTERNAL_SERVER_ERROR);

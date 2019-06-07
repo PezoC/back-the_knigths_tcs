@@ -10,11 +10,11 @@ public interface IMatriculaCabDAO {
 
     MatriculaCab getMatriculaCabBycodAlumno(String cod_alumno);
 
-    MatriculaCab getMatriculaCabByIdPrograma(int id_programa);
+   /* MatriculaCab getMatriculaCabByIdPrograma(int id_programa);
 
     MatriculaCab getMatriculaCabBySemestre(String semestre);
 
-    MatriculaCab getMatriculaCabByCiclo(int ciclo);
+    MatriculaCab getMatriculaCabByCiclo(int ciclo);*/
 
 
 }

@@ -26,7 +26,7 @@ public class AlumnoMatriculaAutorizacionRowMappper implements RowMapper<AlumnoMa
         ama.setSaldo(rs.getFloat("saldo"));
         ama.setFecha_vencimieto(rs.getDate("fecha_vencimiento"));
         ama.setId_rec(rs.getInt("id_rec"));
-        ama.setId_autorizacion_estado(rs.getInt("id_autorizacion_estado"));
+        ama.setId_autorizacion_estado(rs.getInt("id_autoriz_estado"));
         return ama;
     }
 
